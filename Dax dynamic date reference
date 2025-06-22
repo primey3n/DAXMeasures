@@ -1,0 +1,8 @@
+Next Day Qty2 = 
+VAR OffsetDays = 
+CALCULATE(SUM(Sample_Tbl_Dim[Qty]),Sample_Tbl_Dim[Fruit]=SELECTEDVALUE(Sample_Tbl_Fact[Fruit]))
+return
+CALCULATE(
+    SUM(Sample_Tbl_Fact[Qty]),
+    Sample_Tbl_Fact[Date] = MAX(Sample_Tbl_Fact[Date]) + OffsetDays
+)
